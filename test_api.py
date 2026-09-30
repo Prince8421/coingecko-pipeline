@@ -21,11 +21,14 @@ print("Fetched:", data)
 
 # Step 2: Connect to MySQL
 conn = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password=os.getenv("DB_PASSWORD"),
-    database="crypto_data"
+    host= os.getenv("DB_HOST"),
+    port = os.getenv("DB_PORT"),
+    user= os.getenv("DB_USER"),
+    password= os.getenv("DB_PASSWORD"),
+    database= os.getenv("DB_NAME"),
+    ssl_disabled = False
 )
+
 cursor = conn.cursor()
 
 # Step 3: Insert each coin's data into the table
